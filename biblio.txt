@@ -1,0 +1,5 @@
+https://www.pexels.com/photo/low-angle-view-photography-of-gray-building-992987/
+
+C:\Users\fernando.diego\Desktop\Cosas\nombre-de-tu-proyecto\src> npm run dev
+
+https://github.com/mapbox/mapbox-gl-js/issues/10355
