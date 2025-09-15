@@ -5,7 +5,7 @@ import { remark } from 'remark';
 import html from 'remark-html';
 import React from 'react';
 import BlogList from './BlogList';
-import Link from 'next/link'
+import Link from 'next/link';
 import Header from '@/components/Header';
 
 export interface BlogPost {
@@ -42,35 +42,42 @@ async function getBlogPosts(): Promise<BlogPost[]> {
 export default async function BlogPage() {
   const posts = await getBlogPosts();
   return (
-    <>
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
       <Header />
-      <div className="max-w-5xl mx-auto p-4 mt-32">
+
+      {/* Offset content by the fixed header height: 64px (mobile) / 80px (md+) */}
+      <main className="max-w-6xl mx-auto p-6 pt-32">
         <h1 className="text-5xl font-bold mb-8 text-center">Noticias</h1>
         <BlogList posts={posts} />
+      </main>
 
-      </div>
-      <br></br>
-      <footer id="footer" className="snap-start text-white py-10" style={{ backgroundColor: '#343432' }}>
-          
-          <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-8">
-            {/* Company Information */}
-            <div>
-              <h3 className="text-xl font-bold mb-4">Contacto</h3>
-              <p>¿Tienes preguntas o deseas más información sobre nuestros servicios? Contáctanos y uno de nuestros expertos
-              se pondrá en contacto contigo para ayudarte a transformar tu negocio.</p>
-              <br></br>
-              <p>gestion@airdexa.com</p>
-              <p>Madrid, España</p>
-            </div>
-            {/* Contact Form */}
-            <div>
-
-            </div>
+      <footer
+        id="footer"
+        className="snap-start text-white py-10"
+        style={{ backgroundColor: '#343432' }}
+      >
+        <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-8">
+          {/* Company Information */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">Contacto</h3>
+            <p className="text-gray-200">
+              ¿Tienes preguntas o deseas más información sobre nuestros servicios? Contáctanos y uno de nuestros expertos
+              se pondrá en contacto contigo para ayudarte a transformar tu negocio.
+            </p>
+            <br />
+            <p className="text-gray-200">gestion@airdexa.com</p>
+            <p className="text-gray-200">Madrid, España</p>
           </div>
-          <p className="mt-4 text-center">
-            &copy; {new Date().getFullYear()} Airdexa. Todos los derechos reservados. <Link href="/terminos" className="text-white underline">Términos y Política</Link>
-          </p>
-        </footer>
-    </>
+          {/* Contact Form (future) */}
+          <div></div>
+        </div>
+        <p className="mt-4 text-center text-gray-200">
+          &copy; {new Date().getFullYear()} Airdexa. Todos los derechos reservados.{' '}
+          <Link href="/terminos" className="text-gray-100 underline">
+            Términos y Política
+          </Link>
+        </p>
+      </footer>
+    </div>
   );
 }
