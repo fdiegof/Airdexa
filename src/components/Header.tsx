@@ -39,17 +39,26 @@ const Header: React.FC = () => {
         <div className="max-w-6xl mx-auto px-6">
           {/* match Soluciones: big logo height via h-20 and comfy padding via py-6 */}
           <div className="flex items-center justify-between py-6">
-            <Link href="/" aria-label="Ir al inicio" className="flex items-center min-w-0">
-              <Image
-                src="/images/logo.png"
-                alt="Logo"
-                width={120}
-                height={30}
-                // replicate Soluciones behaviour:
-                className="h-20 w-auto object-contain cursor-pointer"
-                // (optional) sizes can be omitted since we're controlling height via CSS
-              />
-            </Link>
+        <Link href="/" aria-label="Inicio">
+        {/* Logo claro */}
+        <Image
+            src="/images/logo.png"
+            alt="Logo"
+            width={120}
+            height={30}
+            className="cursor-pointer block dark:hidden"
+            priority
+        />
+        {/* Logo oscuro */}
+        <Image
+            src="/images/logo-dark.png"
+            alt="Logo (modo oscuro)"
+            width={120}
+            height={30}
+            className="cursor-pointer hidden dark:block"
+            priority
+        />
+        </Link>
 
             {/* Desktop nav */}
             <nav className="hidden md:flex items-center space-x-8">

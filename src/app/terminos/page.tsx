@@ -13,15 +13,26 @@ const TerminosPage: React.FC = () => {
       {/* Header */}
       <header className="absolute top-0 left-0 w-full z-20 flex items-center justify-between p-6">
         <div className="flex items-center">
-          <Link href="/">
-            <Image
-              src="/images/logo.png"
-              alt="Logo"
-              width='120'
-              height='30'
-              className="h-20 cursor-pointer" 
-            />
-          </Link>
+        <Link href="/" aria-label="Inicio">
+          {/* Logo claro */}
+          <Image
+            src="/images/logo.png"
+            alt="Logo"
+            width={120}
+            height={30}
+            className="cursor-pointer block dark:hidden"
+            priority
+          />
+          {/* Logo oscuro */}
+          <Image
+            src="/images/logo-dark.png"
+            alt="Logo (modo oscuro)"
+            width={120}
+            height={30}
+            className="cursor-pointer hidden dark:block"
+            priority
+          />
+        </Link>
         </div>
         <nav className="hidden md:flex space-x-8">
           <Link href="/soluciones" className="text-black font-bold">Soluciones</Link>
@@ -154,26 +165,49 @@ const TerminosPage: React.FC = () => {
         </section>
         
       </main>
-        <footer id="footer" className="snap-start text-white py-10" style={{ backgroundColor: '#343432' }}>
-          <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-8">
-            {/* Company Information */}
-            <div>
-              <h3 className="text-xl font-bold mb-4">Contacto</h3>
-              <p>¿Tienes preguntas o deseas más información sobre nuestros servicios? Contáctanos y uno de nuestros expertos
-              se pondrá en contacto contigo para ayudarte a transformar tu negocio.</p>
-              <br></br>
-              <p>gestion@airdexa.com</p>
-              <p>Madrid, España</p>
-            </div>
-            {/* Contact Form */}
-            <div>
+<footer id="footer" className="snap-start text-white py-10" style={{ backgroundColor: '#343432' }}>
+  <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-8">
+    <div>
+      <h3 className="text-xl font-bold mb-4">Contacto</h3>
+      <p className="text-gray-200">
+        ¿Tienes preguntas o deseas más información sobre nuestros servicios? Contáctanos y uno de nuestros expertos
+        se pondrá en contacto contigo para ayudarte a transformar tu negocio.
+      </p>
+      <br />
+      <p className="text-gray-200">gestion@airdexa.com</p>
+      <p className="text-gray-200">Madrid, España</p>
+    </div>
+    <div>
+      {/* <h3 className="text-xl font-bold mb-4">Envíanos un mensaje</h3> */}
+      {/* <ContactForm /> */}
+    </div>
+  </div>
 
-            </div>
-          </div>
-          <p className="mt-4 text-center">
-            &copy; {new Date().getFullYear()} Airdexa. Todos los derechos reservados. <Link href="/terminos" className="text-white underline">Términos y Política</Link>
-          </p>
-        </footer>
+  <div className="mt-6 flex flex-col items-center space-y-2">
+    <a
+      href="https://www.linkedin.com/company/airdexa/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center text-gray-200 hover:text-blue-400 transition"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className="w-5 h-5 mr-2"
+      >
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.762 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.787-1.75-1.754 0-.969.784-1.754 1.75-1.754s1.75.785 1.75 1.754c0 .967-.784 1.754-1.75 1.754zm13.5 11.268h-3v-5.604c0-1.337-.026-3.058-1.863-3.058-1.865 0-2.152 1.456-2.152 2.962v5.7h-3v-10h2.881v1.367h.04c.401-.76 1.381-1.562 2.844-1.562 3.042 0 3.6 2.003 3.6 4.605v5.59z"/>
+      </svg>
+      Síguenos en LinkedIn
+    </a>
+  </div>
+
+  <p className="mt-4 text-center text-gray-200">
+    &copy; {new Date().getFullYear()} Airdexa. Todos los derechos reservados.{" "}
+    <Link href="/terminos" className="underline text-gray-100 hover:text-gray-300">Términos y Política</Link>
+  </p>
+</footer>
+
     </div>
   );
 };

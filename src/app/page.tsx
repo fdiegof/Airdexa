@@ -4,10 +4,12 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import ContactForm from './ContactForm';
-import 'react-grid-layout/css/styles.css';
-import 'react-resizable/css/styles.css';
+// import 'react-grid-layout/css/styles.css';
+// import 'react-resizable/css/styles.css';
 import BlogCardList from './blog/BlogCardList';
 import type { BlogPost } from './blog/BlogCardList';
+import { Card, CardContent } from '@/components/ui/card';
+import { CheckCircle, Package, ClipboardCheck } from 'lucide-react'
 
 /* ===================== Reveal on Scroll (fixed) =====================
 
@@ -194,7 +196,26 @@ const LandingPage: React.FC = () => {
       {/* Header */}
       <header className="absolute top-0 left-0 w-full z-20 flex items-center justify-between p-6">
         <div className="flex items-center">
-          <Image src="/images/logo.png" alt="Logo" width={120} height={30} className="cursor-pointer" />
+                  <Link href="/" aria-label="Inicio">
+        {/* Logo claro */}
+        <Image
+            src="/images/logo.png"
+            alt="Logo"
+            width={120}
+            height={30}
+            className="cursor-pointer block dark:hidden"
+            priority
+        />
+        {/* Logo oscuro */}
+        <Image
+            src="/images/logo-dark.png"
+            alt="Logo (modo oscuro)"
+            width={120}
+            height={30}
+            className="cursor-pointer hidden dark:block"
+            priority
+        />
+        </Link>
         </div>
         <nav className="hidden md:flex space-x-8">
           <Link href="/soluciones"  className="font-bold text-gray-100 dark:text-gray-100">Soluciones</Link>
@@ -233,7 +254,7 @@ const LandingPage: React.FC = () => {
             Impulsa tu negocio con <Typewriter />
           </h1>
           <h1 className="text-white/95 text-lg">
-            Descubre cómo te ayudamos a transformar tu negocio
+            Porque volar debería ser lo único que te preocupe
           </h1>
         </div>
       </section>
@@ -246,11 +267,18 @@ const LandingPage: React.FC = () => {
               <div>
                 <h2 className="text-4xl font-bold mb-4">¿Quiénes somos? - Conoce Airdexa</h2>
                 <p className="text-gray-700 dark:text-gray-300 mb-6">
-                  <b>Airdexa</b> es una empresa especializada en soluciones tecnológicas y consultoría estratégica en el ámbito de los drones en España. Nos dirigimos a empresas, instituciones y operadores que buscan innovar, optimizar y cumplir con la normativa vigente.
+                  En <b>Airdexa Drone Solutions</b> desarrollamos tecnología para transformar la forma en que se gestionan las operaciones de drones.
                 </p>
                 <p className="text-gray-700 dark:text-gray-300">
-                  Nuestro equipo multidisciplinar permite ofrecer soluciones de alto valor añadido tanto a nivel operativo como regulatorio.
+                  Nacida en el marco del programa ENAIRE Open Innovation, Airdexa impulsa la digitalización del sector UAS mediante soluciones de software que automatizan procesos, mejoran la seguridad operativa y facilitan la conexión entre operadores, pilotos y autoridades aeronáuticas.
+                </p><br></br>
+                <p className="text-gray-700 dark:text-gray-300">
+                  Nuestro trabajo combina ingeniería y visión estratégica para crear herramientas que aportan valor real a la gestión aérea y la movilidad del futuro.
+                </p><br></br>
+                <p className="text-gray-700 dark:text-gray-300">
+                  En Airdexa creemos en la colaboración, la innovación y la tecnología responsable como motores del progreso en el ecosistema UAS.
                 </p>
+
               </div>
             </RevealOnScroll>
 
@@ -265,8 +293,13 @@ const LandingPage: React.FC = () => {
                     </li>
                     <li>
                       <span className="absolute w-4 h-4 bg-red-600 rounded-full -left-2 top-1.5"></span>
+                      <h4 className="font-semibold text-lg">Soluciones digitales</h4>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm">Te proporcionamos de herramientas que te permiten centrarte en lo verdaderamente importante, volar.</p>
+                    </li>
+                    <li>
+                      <span className="absolute w-4 h-4 bg-red-600 rounded-full -left-2 top-1.5"></span>
                       <h4 className="font-semibold text-lg">Soluciones personalizadas</h4>
-                      <p className="text-gray-600 dark:text-gray-400 text-sm">Desarrollamos herramientas de gestión de flotas y cumplimiento normativo.</p>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm">Nos adaptamos a tus necesidades para proporcionarte las soluciones particulares que pudieses necesitar.</p>
                     </li>
                     <li>
                       <span className="absolute w-4 h-4 bg-red-600 rounded-full -left-2 top-1.5"></span>
@@ -282,57 +315,81 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* Solutions */}
-      <section id="solutions" className="snap-start min-h-screen flex items-center justify-center flex-col bg-gray-100 dark:bg-gray-950 py-20">
-        <RevealOnScroll className="w-full">
-          <div className="text-center px-4 mb-12">
-            <h2 className="text-4xl font-bold mb-4">¿Qué ofrecemos? - Conoce nuestros servicios</h2>
-          </div>
+<section>
+  <div className="max-w-6xl mx-auto px-4">
+    <h2 className="text-3xl font-bold mb-8">Nuestras soluciones</h2>
 
-          <div className="w-full flex flex-col md:flex-row">
-            <RevealOnScroll delay={0} className="w-full md:w-1/2 flex justify-center items-center mb-8 md:mb-0">
-              <Image
-                src="/images/mockuper.png"
-                alt="Placeholder"
-                width={350}
-                height={60}
-                className="w-full max-w-md md:max-w-lg h-auto"
-              />
-            </RevealOnScroll>
+    <div className="grid gap-6 md:grid-cols-2">
+      {/* SkAi Permit */}
+      <Link href="/soluciones/skai-permit" className="block group" aria-label="Ver SkAi Permit">
+        <Card className="h-full dark:bg-gray-800 dark:border-gray-700 transition hover:-translate-y-0.5 hover:shadow-md">
+          <CardContent className="p-6 space-y-4">
+            <div className="flex items-center gap-3">
+              <Image src="/images/skai-permit-logo.jpg" alt="SkAi Permit" width={40} height={40} className="rounded" />
+              <h3 className="text-xl font-semibold">SkAi Permit</h3>
+              <span className="ml-auto text-[11px] px-2 py-0.5 rounded-full bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300">
+                Permisos automáticos
+              </span>
+            </div>
 
-            <RevealOnScroll delay={140} className="w-full md:w-1/2 px-4 pr-8" style={{ textAlign: 'justify' }}>
-              <div>
-                <h2 className="font-semibold text-lg">Soluciones a medida para la gestión de flotas de drones</h2>
-                <p className="text-gray-700 dark:text-gray-300">
-                  En Airdexa desarrollamos herramientas personalizadas para la <strong>gestión de flotas de drones</strong>. Nuestro enfoque se adapta a las necesidades específicas de cada cliente, permitiendo un control completo sobre:
-                </p>
-                <ul className="list-disc ml-6 my-2 text-gray-700 dark:text-gray-300">
-                  <li>Mantenimiento y trazabilidad de aeronaves.</li>
-                  <li>Registro y planificación de vuelos.</li>
-                  <li>Gestión documental y cumplimiento normativo EASA/AESA.</li>
-                </ul>
-                <p className="text-gray-700 dark:text-gray-300">
-                  Ya seas una empresa audiovisual, una ingeniería, o una administración pública, nuestras soluciones permiten una <strong>gestión más eficiente, segura y rentable</strong> de tus operaciones con drones.
-                </p>
+            <p className="text-gray-700 dark:text-gray-300">
+              Automatiza la obtención de permisos y coordinaciones para volar en España. Indica <strong>cuándo</strong>, <strong>dónde</strong> y <strong>con qué dron</strong>; nosotros gestionamos el resto.
+            </p>
 
-                <br />
+            <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
+              <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-600 mt-0.5" /> Coordinación multi-entidad</li>
+              <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-600 mt-0.5" /> Estado y entregables en un único panel</li>
+              <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-600 mt-0.5" /> Consciencia situacional del entorno</li>
+            </ul>
 
-                <h2 className="font-semibold text-lg">Consultoría especializada en drones en España</h2>
-                <p className="text-gray-700 dark:text-gray-300">
-                  También ofrecemos servicios de <strong>consultoría estratégica y técnica</strong> para empresas del sector o aquellas que desean integrar drones en su actividad. Algunos de nuestros servicios incluyen:
-                </p>
-                <ul className="list-disc ml-6 my-2 text-gray-700 dark:text-gray-300">
-                  <li>Asesoramiento normativo (regulación EASA, AESA, STS, A1/A3, etc.).</li>
-                  <li>Diseño e implementación de operaciones con drones.</li>
-                  <li>Estudios de viabilidad, seguridad y adaptación tecnológica.</li>
-                </ul>
-                <p className="text-gray-700 dark:text-gray-300">
-                  Contamos con un equipo multidisciplinar con amplia experiencia en el sector, lo que nos permite ofrecer soluciones de alto valor añadido, tanto a nivel operativo como regulatorio.
-                </p>
-              </div>
-            </RevealOnScroll>
-          </div>
-        </RevealOnScroll>
-      </section>
+            {/* <div className="text-xs text-gray-500 dark:text-gray-400">
+              Tiempo medio de solicitud: <span className="font-medium text-gray-700 dark:text-gray-200">menos de 5 min</span>
+            </div> */}
+
+            <span className="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium group-hover:underline">
+              Ver más →
+            </span>
+          </CardContent>
+        </Card>
+      </Link>
+
+      {/* Justflier */}
+      <Link href="/soluciones/justflier" className="block group" aria-label="Ver Justflier">
+        <Card className="h-full dark:bg-gray-800 dark:border-gray-700 transition hover:-translate-y-0.5 hover:shadow-md">
+          <CardContent className="p-6 space-y-4">
+            <div className="flex items-center gap-3">
+              <Image src="/images/justflier-logo.jpeg" alt="Justflier" width={40} height={40} className="rounded" />
+              <h3 className="text-xl font-semibold">Justflier</h3>
+              <span className="ml-auto text-[11px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
+                Gestión de flotas
+              </span>
+            </div>
+
+            <p className="text-gray-700 dark:text-gray-300">
+              Plataforma integral para gestionar flotas, pilotos, documentación y registros de vuelo con dashboards y trazabilidad completa.
+            </p>
+
+            <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
+              <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-600 mt-0.5" /> Inventario, mantenimiento y alertas</li>
+              <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-600 mt-0.5" /> Licencias y vencimientos de pilotos</li>
+              <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-600 mt-0.5" /> Planificación y registro de misiones</li>
+            </ul>
+
+            {/* <div className="text-xs text-gray-500 dark:text-gray-400">
+              Implementación típica: <span className="font-medium text-gray-700 dark:text-gray-200">en días, no semanas</span>
+            </div> */}
+
+            <span className="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium group-hover:underline">
+              Ver más →
+            </span>
+          </CardContent>
+        </Card>
+      </Link>
+    </div>
+  </div>
+</section>
+
+
 
       {/* Contact (hidden) */}
       <section id="contact" className="snap-start min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-950 py-20 hidden">
@@ -393,28 +450,49 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <footer id="footer" className="snap-start text-white py-10" style={{ backgroundColor: '#343432' }}>
-        <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-8">
-          <div>
-            <h3 className="text-xl font-bold mb-4">Contacto</h3>
-            <p className="text-gray-200">
-              ¿Tienes preguntas o deseas más información sobre nuestros servicios? Contáctanos y uno de nuestros expertos
-              se pondrá en contacto contigo para ayudarte a transformar tu negocio.
-            </p>
-            <br />
-            <p className="text-gray-200">gestion@airdexa.com</p>
-            <p className="text-gray-200">Madrid, España</p>
-          </div>
-          <div>
-            <h3 className="text-xl font-bold mb-4">Envíanos un mensaje</h3>
-            <ContactForm />
-          </div>
-        </div>
-        <p className="mt-4 text-center text-gray-200">
-          &copy; {new Date().getFullYear()} Airdexa. Todos los derechos reservados.{" "}
-          <Link href="/terminos" className="underline text-gray-100">Términos y Política</Link>
-        </p>
-      </footer>
+<footer id="footer" className="snap-start text-white py-10" style={{ backgroundColor: '#343432' }}>
+  <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-8">
+    <div>
+      <h3 className="text-xl font-bold mb-4">Contacto</h3>
+      <p className="text-gray-200">
+        ¿Tienes preguntas o deseas más información sobre nuestros servicios? Contáctanos y uno de nuestros expertos
+        se pondrá en contacto contigo para ayudarte a transformar tu negocio.
+      </p>
+      <br />
+      <p className="text-gray-200">gestion@airdexa.com</p>
+      <p className="text-gray-200">Madrid, España</p>
+    </div>
+    <div>
+      {/* <h3 className="text-xl font-bold mb-4">Envíanos un mensaje</h3> */}
+      {/* <ContactForm /> */}
+    </div>
+  </div>
+
+  <div className="mt-6 flex flex-col items-center space-y-2">
+    <a
+      href="https://www.linkedin.com/company/airdexa/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center text-gray-200 hover:text-blue-400 transition"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className="w-5 h-5 mr-2"
+      >
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.762 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.787-1.75-1.754 0-.969.784-1.754 1.75-1.754s1.75.785 1.75 1.754c0 .967-.784 1.754-1.75 1.754zm13.5 11.268h-3v-5.604c0-1.337-.026-3.058-1.863-3.058-1.865 0-2.152 1.456-2.152 2.962v5.7h-3v-10h2.881v1.367h.04c.401-.76 1.381-1.562 2.844-1.562 3.042 0 3.6 2.003 3.6 4.605v5.59z"/>
+      </svg>
+      Síguenos en LinkedIn
+    </a>
+  </div>
+
+  <p className="mt-4 text-center text-gray-200">
+    &copy; {new Date().getFullYear()} Airdexa. Todos los derechos reservados.{" "}
+    <Link href="/terminos" className="underline text-gray-100 hover:text-gray-300">Términos y Política</Link>
+  </p>
+</footer>
+
     </div>
   );
 };
