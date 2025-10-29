@@ -3,13 +3,10 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import ContactForm from './ContactForm';
-// import 'react-grid-layout/css/styles.css';
-// import 'react-resizable/css/styles.css';
 import BlogCardList from './blog/BlogCardList';
 import type { BlogPost } from './blog/BlogCardList';
 import { Card, CardContent } from '@/components/ui/card';
-import { CheckCircle, Package, ClipboardCheck } from 'lucide-react'
+import { CheckCircle } from 'lucide-react'
 
 /* ===================== Reveal on Scroll (fixed) =====================
 
