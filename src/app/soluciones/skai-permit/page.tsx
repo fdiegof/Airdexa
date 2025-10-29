@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import { CheckCircle, Clock, Shield, Map, ChevronRight, Rocket, Paperclip, Sparkles } from "lucide-react";
 
 import Link from 'next/link';
@@ -173,10 +172,13 @@ export default function SkAiPermitLanding() {
         </div>
 
         <div className="flex items-center justify-center p-6 md:p-12">
-            <img
-            src="/images/skai-permit-landing.png"
-            alt="Vista previa de SkAi Permit"
-            className="max-w-full h-auto object-contain max-h-[70vh] md:max-h-[480px] lg:max-h-[520px]"
+            <Image
+                src="/images/skai-permit-landing.png"
+                alt="Vista previa de SkAi Permit"
+                width={1000}           // pon valores razonables
+                height={700}           // proporción aproximada
+                priority               // opcional si es hero
+                className="max-w-full h-auto object-contain max-h-[400px] md:max-h-[440px] lg:max-h-[500px]"
             />
         </div>
         </div>
