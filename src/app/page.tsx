@@ -350,38 +350,7 @@ const LandingPage: React.FC = () => {
         </Card>
       </Link>
 
-      {/* Justflier */}
-      <Link href="/soluciones/justflier" className="block group" aria-label="Ver Justflier">
-        <Card className="h-full dark:bg-gray-800 dark:border-gray-700 transition hover:-translate-y-0.5 hover:shadow-md">
-          <CardContent className="p-6 space-y-4">
-            <div className="flex items-center gap-3">
-              <Image src="/images/justflier-logo.jpeg" alt="Justflier" width={40} height={40} className="rounded" />
-              <h3 className="text-xl font-semibold">Justflier</h3>
-              <span className="ml-auto text-[11px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
-                Gestión de flotas
-              </span>
-            </div>
 
-            <p className="text-gray-700 dark:text-gray-300">
-              Plataforma integral para gestionar flotas, pilotos, documentación y registros de vuelo con dashboards y trazabilidad completa.
-            </p>
-
-            <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
-              <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-600 mt-0.5" /> Inventario, mantenimiento y alertas</li>
-              <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-600 mt-0.5" /> Licencias y vencimientos de pilotos</li>
-              <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-600 mt-0.5" /> Planificación y registro de misiones</li>
-            </ul>
-
-            {/* <div className="text-xs text-gray-500 dark:text-gray-400">
-              Implementación típica: <span className="font-medium text-gray-700 dark:text-gray-200">en días, no semanas</span>
-            </div> */}
-
-            <span className="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium group-hover:underline">
-              Ver más →
-            </span>
-          </CardContent>
-        </Card>
-      </Link>
     </div>
   </div>
 </section>

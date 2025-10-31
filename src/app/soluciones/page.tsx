@@ -98,7 +98,6 @@ const SolucionesPage: React.FC = () => {
           </p>
         </section>
 
-        {/* Nuestras soluciones: enlaces a SkAi Permit y Justflier */}
         <section>
           <h2 className="text-3xl font-bold mb-8">Nuestras soluciones</h2>
           <div className="grid gap-6 md:grid-cols-2">
@@ -117,20 +116,6 @@ const SolucionesPage: React.FC = () => {
               </Card>
             </Link>
 
-            <Link href="/soluciones/justflier" className="block group">
-              <Card className="h-full dark:bg-gray-800 dark:border-gray-700">
-                <CardContent className="p-6 space-y-3">
-                  <div className="flex items-center gap-3">
-                    <Image src="/images/justflier-logo.jpeg" alt="Justflier" width={40} height={40} className="rounded" />
-                    <h3 className="text-xl font-semibold">Justflier</h3>
-                  </div>
-                  <p className="text-gray-700 dark:text-gray-300">
-                    Plataforma integral para gestionar flotas, pilotos, documentación y registros de vuelo con dashboards y trazabilidad completa.
-                  </p>
-                  <span className="text-blue-600 dark:text-blue-400 font-medium group-hover:underline">Ver más →</span>
-                </CardContent>
-              </Card>
-            </Link>
           </div>
         </section>
 
@@ -167,21 +152,8 @@ const SolucionesPage: React.FC = () => {
           </div>
         </section>
 
-        {/* Justflier Intro (ya presente, mantenemos y enlazamos) */}
-        <section>
-          <h1 className="text-4xl font-bold mb-6">Herramienta de gestión de flotas para empresas</h1>
-          <p className="text-gray-700 dark:text-gray-300">
-            Justflier es la solución integral que tu empresa necesita para gestionar de forma ágil y segura todo el ciclo de vida de sus operaciones con drones. Olvídate de hojas de cálculo dispersas y de procesos manuales que consumen tiempo: con nuestra plataforma web tendrás, en un mismo entorno, un inventario detallado de cada unidad aérea, un registro completo de las certificaciones de tus pilotos y un histórico exhaustivo de cada vuelo. Gracias a su arquitectura modular y a sus paneles de control personalizables, Justflier se adapta a tus necesidades presentes y escala sin complicaciones a medida que tu flota crece.
-          </p>
-          <div className="mt-4">
-            <Link href="/soluciones/justflier" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
-              Conoce Justflier →
-            </Link>
-          </div>
-        </section>
-
         {/* Beneficios SkAi Permit (clave) */}
-        <section className="grid gap-6 md:grid-cols-2 items-start">
+        <section className="grid gap-6 md:grid-cols-1 items-start">
           <div className="space-y-4">
             <h2 className="text-2xl font-semibold">¿Por qué SkAi Permit?</h2>
             <ul className="space-y-2 text-gray-700 dark:text-gray-300">
@@ -191,15 +163,7 @@ const SolucionesPage: React.FC = () => {
               <li className="flex items-start"><CheckCircle className="mr-2 text-green-600" />Cumplimiento normativo asegurado</li>
             </ul>
           </div>
-          <div className="space-y-4">
-            <h2 className="text-2xl font-semibold">¿Por qué Justflier?</h2>
-            <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-              <li className="flex items-start"><CheckCircle className="mr-2 text-green-600" />Gestión centralizada desde una única plataforma</li>
-              <li className="flex items-start"><CheckCircle className="mr-2 text-green-600" />Ahorro de tiempo y reducción de errores operativos</li>
-              <li className="flex items-start"><CheckCircle className="mr-2 text-green-600" />Cumplimiento normativo sin esfuerzo</li>
-              <li className="flex items-start"><CheckCircle className="mr-2 text-green-600" />Escalable según el crecimiento de tu flota</li>
-            </ul>
-          </div>
+
         </section>
 
 
@@ -210,12 +174,10 @@ const SolucionesPage: React.FC = () => {
               Elige la solución que encaja contigo
             </h2>
             <p className="mt-3 text-lg text-gray-700 dark:text-gray-300">
-              Optimiza tus operaciones: automatiza permisos con <strong>SkAi Permit</strong> o gestiona tu flota de forma integral con <strong>Justflier</strong>.
+              Optimiza tus operaciones: automatiza permisos con <strong>SkAi Permit</strong>.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
-              <Link href="/soluciones/justflier" className="px-6 py-3 rounded bg-sky-600 text-white hover:bg-sky-700">
-                Ver Justflier
-              </Link>
+
               <Link href="/soluciones/skai-permit" className="px-6 py-3 rounded border border-slate-300 text-slate-900 hover:bg-slate-50 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-800/60">
                 Ver SkAi Permit
               </Link>
